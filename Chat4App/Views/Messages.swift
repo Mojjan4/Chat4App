@@ -37,13 +37,13 @@ struct Messages: View {
             }
             
         }
-            .navigationBarTitle(chatroom.tittle)
+            .navigationBarTitle(chatroom.title)
         
     }
 }
 
 struct Messages_Previews: PreviewProvider {
     static var previews: some View {
-        Messages(chatroom: Chatroom(id: "10101", tittle: "Hello", joinCode: 10))
+        Messages(chatroom: Chatroom(id: "10101", title: "Hello", joinCode: 10))
     }
 }

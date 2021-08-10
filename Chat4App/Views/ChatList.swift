@@ -21,7 +21,7 @@ struct ChatList: View {
             List(viewModel.chatrooms) { chatroom in
                 NavigationLink(destination: Messages(chatroom: chatroom)) {
                     HStack {
-                        Text(chatroom.tittle)
+                        Text(chatroom.title)
                         Spacer()
                     }
                 }
@@ -29,7 +29,8 @@ struct ChatList: View {
                 .navigationBarItems(trailing: Button(action: {
                     self.joinModal = true
                 }, label: {
-                    Image(systemName: "plus.circle")
+                    Text("Add chat")
+                    //Image(systemName: "plus.circle")
                 }))
             }
             .sheet(isPresented: $joinModal, content:  {

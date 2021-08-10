@@ -10,7 +10,7 @@ import Firebase
 
 struct Chatroom: Codable, Identifiable {
     var id: String
-    var tittle: String
+    var title: String
     var joinCode: Int
 }
 
@@ -33,7 +33,7 @@ class ChatroomsViewModel: ObservableObject {
                     let docId = docSnapshot.documentID
                     let title = data["title"] as? String ?? ""
                     let joinCode = data["joinCode"] as? Int ?? -1
-                    return Chatroom(id: docId, tittle: title, joinCode: joinCode)
+                    return Chatroom(id: docId, title: title, joinCode: joinCode)
                     
                 })
             })
@@ -47,7 +47,7 @@ class ChatroomsViewModel: ObservableObject {
                                                     "joinCode": Int.random(in: 10000..<99999),
                                                     "users": [user!.uid]]) { err in
                 if let err = err {
-                    print("Error adding document \(err)")
+                    print("Error adding document! \(err)")
                 } else {
                     handler()
                 }

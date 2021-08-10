@@ -11,14 +11,14 @@ struct Join: View {
     
     @Binding var isOpen: Bool
     @State var joinCode = ""
-    @State var newtitle = ""
+    @State var newTitle = ""
     @ObservedObject var viewModel = ChatroomsViewModel()
     
     var body: some View {
         NavigationView {
             VStack  {
                 VStack {
-                    Text("Join or create chatroom")
+                    Text("Join a chatroom")
                         .font(.title)
                     TextField("Enter your join code", text: $joinCode)
                     Button(action: {
@@ -34,9 +34,9 @@ struct Join: View {
                 VStack {
                     Text("Create a chatroom")
                         .font(.title)
-                    TextField("Enter a new title", text: $newtitle)
+                    TextField("Enter a new title", text: $newTitle)
                     Button(action: {
-                        viewModel.createChatroom(title: newtitle, handler: {
+                        viewModel.createChatroom(title: newTitle, handler: {
                             self.isOpen = false
                         })
                     }, label: {
@@ -45,7 +45,7 @@ struct Join: View {
                 }
                 .padding(.top)
             }
-            .navigationTitle("Join or create")
+            .navigationBarTitle("Join or create")
         }
     }
 }
